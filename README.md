@@ -1,86 +1,164 @@
+# CS2 Translator - by Sl0w
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![Platform](https://img.shields.io/badge/platform-Windows-lightgrey.svg)](https://www.microsoft.com/windows)
 
-Real-Tm Translator for CounterStrik 2
+## Real-Time Chat Translator for Counter-Strike 2
 
-A poweful, ral-im chat tanslatoro that automatically detects and translates chat messages without affecting gameplay.![CS2 Translator Preview](https://via.placeholder.com/800x400?text=CS2+Translator+Preview)
+A powerful, real-time chat translator for Counter-Strike 2 that automatically detects and translates chat messages without affecting gameplay.
 
+## Features
 
-🔴  Tanlaio- Real-time translatiof c messages
- **🌍 20 Lnguages** - Suppot for te world's mos spok languages⚙️ Cbl- Works with E➕Custom - Add yor own cht pefixes🔒 ce ProteionUltra-strog 5-layruicadtcio⌨️ In-Game - Wors  fullsceod🖥️  - Non-intrusive display over the game💾 Auto-Sav Confg** - Settigs arautmatically saved
-- **🚫 No CoRuns competely in the background
+- **Live Translation** - Real-time translation of CS2 chat messages
+- **20 Languages** - Support for the world's most spoken languages
+- **Configurable Syntax** - Works with [ALL], [ALLE], [TODOS], etc.
+- **Custom Syntax** - Add your own chat prefixes
+- **Duplicate Protection** - Ultra-strong 5-layer duplicate detection
+- **In-Game Hotkeys** - Works in fullscreen mode
+- **Transparent Overlay** - Non-intrusive display over the game
+- **Auto-Save Config** - Settings are automatically saved
+- **No Console** - Runs completely in the background
 
-## 🌍 Sppored Languages
+## Supported Languages
 
 | Language | Code | Language | Code |
 |----------|------|----------|------|
 | English | `en` | Japanese | `ja` |
-|Chnese | `zh-CN` | Geran | `de` |
-|indi | `hi` | Korean | `ko` |
+| Chinese | `zh-CN` | German | `de` |
+| Hindi | `hi` | Korean | `ko` |
 | Spanish | `es` | Turkish | `tr` |
 | French | `fr` | Vietnamese | `vi` |
-| Arabic | `ar` | Itala | `i` |
-| Bngali | `bn` | Polish | `pl` |
-| Potuuese | `pt` | Ukrainian | `uk` |
-| Russian | `u` | Dtch | `nl` |
-| Thai | `th` | Indonesia | `i` |tion
+| Arabic | `ar` | Italian | `it` |
+| Bengali | `bn` | Polish | `pl` |
+| Portuguese | `pt` | Ukrainian | `uk` |
+| Russian | `ru` | Dutch | `nl` |
+| Thai | `th` | Indonesian | `id` |
 
-### Opon 1: Download EXE (Recmmeded)**Download te latest release from [Releases](../../eleass)
-2. **Run**toi dependencs
-3. **Sta**`CS2_Translr_by_Sl0w.exe`
+## Installation
 
-### Opon 2: Run from Soure
+### Option 1: Download EXE (Recommended)
 
-1.**Conhrposiory**  ```bash
-giclon http://github.com/YourUnme/s2-translator.gi
-  cdc2-rnsr
-   ``` dependencies**
+1. **Download** the latest release from [Releases](../../releases)
+2. **Install** Tesseract OCR from: https://github.com/UB-Mannheim/tesseract/wiki
+3. **Run** `CS2_Translator_by_Sl0w.exe`
+
+### Option 2: Run from Source
+
+1. **Clone the repository**
    ```bash
-   pip nstall -r rquiemnts.txt
+   git clone https://github.com/nomoneyclub/CS2-Translator.git
+   cd CS2-Translator
    ```
 
-3. **Install fromto`
+2. **Install dependencies**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. **Install Tesseract OCR**
+   - Download from: https://github.com/UB-Mannheim/tesseract/wiki
+   - Install to: `C:\Program Files\Tesseract-OCR\`
 
 4. **Run the translator**
    ```bash
    python cs2_translator.pyw
-   ``UsagLunch Sect eg,oEngliEoGerma)
-4. **Select Taret Language** (anguage you want translaton in5Pssoardetection c aa6PsstostanlaioKycdtectcregion arectiotranslation Hide/Show oQuitapplicatio  OptionsThetranslatorsppor multiple at prefixes based on game language:
+   ```
+
+## Usage
+
+1. **Start CS2**
+2. **Launch CS2 Translator**
+3. **Select Chat Syntax** (e.g., [ALL] for English, [ALLE] for German)
+4. **Select Target Language** (language you want translations in)
+5. **Press F7** for auto-region detection (CS2 chat area)
+6. **Press F10** to start translation
+
+## Hotkeys
+
+| Key | Function |
+|-----|----------|
+| **F7** / **Num2** | Auto-detect CS2 chat region |
+| **F9** / **Num1** | Manual region selection |
+| **F10** / **Num0** | Start/Stop translation |
+| **F11** | Hide/Show overlay |
+| **F12** | Quit application |
+
+## Chat Syntax Options
+
+The translator supports multiple chat prefixes based on game language:
+
 | Prefix | Game Language |
-|-------|---------------|
-|``| ||`ALLE]` | German |
-| `[`| ||``|e ||``|a ||``|an ||``|u || `[全部]` | Chinese|
+|--------|---------------|
+| `[ALL]` | English |
+| `[ALLE]` | German |
+| `[TODOS]` | Spanish |
+| `[TOUS]` | French |
+| `[TUTTI]` | Italian |
+| `[ВСЕМ]` | Russian |
+| `[TÜME]` | Turkish |
+| `[全部]` | Chinese |
 
-Csm Sytax:Clck th `+`butto o dd yourow preix!CSttsacally avedto speces
-- Targt laguageSreen Customs eisTuhooti### oofrmthcasorcEnurit'installd
+**Custom Syntax:** Click the `+` button to add your own prefix!
 
-### NotralosappaiChckif isrnning Verifyhorc s issecedUsor dtectio### uicatanlaiosThbul-n 5-laydce proteionprents ts
-- If issus pesis,restart the applcation
+## Configuration
 
-## 📝 Not
+Settings are automatically saved to `cs2_translator_config.json`:
+- Chat syntax preferences
+- Target language
+- Screen region
+- Custom syntax entries
 
--Only trnslates pblic cha essges (wth eleted prefix)Tam chat snt transatd
-- Systmmessaes refiltred ot
--Work wih ll CS2 solutios🤝Contrbutig
+## Troubleshooting
 
-Contributions are lcome! Plea:1.Fork th epoitory
-2. Crae a feaurebrach (`git checkot-b aure/AmazngFature`)
-3.ommit your cnges (`gi commit m 'Add some AmzingFeatue'`)
-4. Pus to h brach`g pushoriin faur/AazingFeatue`5.Opn  Pull Reques
+### Tesseract not found
+- Install Tesseract OCR from the official source
+- Ensure it's installed in `C:\Program Files\Tesseract-OCR\`
 
-## 📄License
+### No translations appearing
+- Check if CS2 is running
+- Verify the correct chat syntax is selected
+- Use F7 for automatic region detection
 
-Ths poject is licenseuder the MIT Lense -se [LICENSE](LICENSE) fo detail.
+### Duplicate translations
+- The built-in 5-layer duplicate protection prevents this
+- If issues persist, restart the application
 
-## 🙏 Acknowledgmns
-**Tesrt OCR** fo xtcognitio
--**Gool Transa API** for tanslaions **CS2Commity** for feedbac and tesng
+## Notes
 
-## 📞 Support
+- Only translates public chat messages (with selected prefix)
+- Team chat is not translated
+- System messages are filtered out
+- Works with all CS2 resolutions
 
-Fr ssus o quesons:
--Opan[Isse](../../ises)
-- Cotact [@Sl0w](https://ithub.com/Sl0w)Ceadby.0
+## Contributing
+
+Contributions are welcome! Please:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see [LICENSE](LICENSE) for details.
+
+## Acknowledgments
+
+- **Tesseract OCR** for text recognition
+- **Google Translate API** for translations
+- **CS2 Community** for feedback and testing
+
+## Support
+
+For issues or questions:
+- Open an [Issue](../../issues)
+- Contact [@Sl0w](https://github.com/nomoneyclub)
+
+---
+
+**Created by Sl0w** | Version 1.0.0
 
 ⭐ **Like this project? Give it a star!** ⭐
