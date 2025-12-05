@@ -318,30 +318,64 @@ class CS2Translator:
                     message_part = parts[1].strip() if len(parts) > 1 else ""
                     
                     if message_part and len(message_part) > 1:
-                        translated_msg = self.translator.translate(message_part)
-                        result_lines.append(f"{username_part}: {translated_msg}")
+                        try:
+                            # Recreate translator if needed
+                            translated_msg = self.translator.translate(message_part)
+                            if translated_msg:
+                                result_lines.append(f"{username_part}: {translated_msg}")
+                            else:
+                                result_lines.append(line)
+                        except Exception as te:
+                            self._debug(f"Translate error: {te}")
+                            # Try to recreate translator
+                            try:
+                                self.translator = GoogleTranslator(source=SOURCE_LANGUAGE, target=self.target_language)
+                                translated_msg = self.translator.translate(message_part)
+                                result_lines.append(f"{username_part}: {translated_msg}")
+                            except:
+                                result_lines.append(line)
                     else:
                         result_lines.append(line)
                 else:
-                    translated = self.translator.translate(line)
-                    result_lines.append(translated)
+                    try:
+                        translated = self.translator.translate(line)
+                        result_lines.append(translated if translated else line)
+                    except:
+                        result_lines.append(line)
             
             result = '\n'.join(result_lines)
-            self.cache[text] = result
+            if result:
+                self.cache[text] = result
             return result
         except Exception as e:
-            return ""
+            self._debug(f"Translation failed: {e}")
+            return text
     
     def auto_region_cs2_chat(self):
-        """Set automatic CS2 chat region"""
-        screen_width = self.root.winfo_screenwidth()
-        screen_height = self.root.winfo_screenheight()
+        """Set automatic CS2 chat region for primary monitor"""
+        # Use mss to get accurate monitor info
+        try:
+            with mss.mss() as sct:
+                # Monitor 1 is the primary monitor (index 1, index 0 is all monitors combined)
+                if len(sct.monitors) > 1:
+                    monitor = sct.monitors[1]  # Primary monitor
+                    screen_width = monitor['width']
+                    screen_height = monitor['height']
+                    left_offset = monitor['left']
+                else:
+                    screen_width = self.root.winfo_screenwidth()
+                    screen_height = self.root.winfo_screenheight()
+                    left_offset = 0
+        except:
+            screen_width = self.root.winfo_screenwidth()
+            screen_height = self.root.winfo_screenheight()
+            left_offset = 0
         
         self.capture_region = {
-            "left": 0,
-            "top": int(screen_height * 0.78),
-            "width": int(screen_width * 0.28),
-            "height": int(screen_height * 0.12)
+            "left": left_offset,
+            "top": int(screen_height * 0.75),
+            "width": int(screen_width * 0.30),
+            "height": int(screen_height * 0.15)
         }
         self._update_region_label()
         self.save_config()
